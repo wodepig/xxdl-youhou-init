@@ -11,7 +11,7 @@ export default defineConfig({
     minify: false,
   },
   plugins: [
- 
+
     vue(),
     UnoCSS(),
     AutoImport({
@@ -21,10 +21,10 @@ export default defineConfig({
       entry: 'src/main.ts',
       userscript: {
         license: 'MIT',
-        description: '油猴快速开发',
+        description: 'hook bug测试',
         icon: 'https://vitejs.dev/logo.svg',
         namespace: 'npm/vite-plugin-monkey',
-        match: ['https://www.baidu.com/'],
+        match: ['https://college.yingdao.com/','https://college.yingdao.com/course'],
       },
       clientAlias: 'v$v',
       build: {
@@ -50,7 +50,7 @@ export default defineConfig({
         externalResource: {
           'element-plus/dist/index.css': cdn.jsdelivr(),
         },
-        
+
       },
     }),
   ],
