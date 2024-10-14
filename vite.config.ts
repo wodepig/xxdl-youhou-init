@@ -11,6 +11,7 @@ export default defineConfig({
   },
   plugins: [
     AutoImport({
+      include: [/\.ts$/],
       imports: [util.unimportPreset],
     }),
     vue(),
@@ -24,9 +25,25 @@ export default defineConfig({
         match: ['https://www.baidu.com/'],
       },
       build: {
-        externalGlobals: {
-          vue: cdn.jsdelivr('Vue', 'dist/vue.global.prod.js'),
+        externalGlobals:  [
+          [
+            'vue',
+            cdn
+                .jsdelivr('Vue', 'dist/vue.global.prod.js')
+                .concat(
+                    cdn.jsdelivr('', 'lib/index.iife.js')[1]('latest', 'vue-demi'),
+                )
+                .concat(util.dataUrl(';window.Vue=Vue;')),
+          ],
+          [
+            'element-plus',
+            cdn.jsdelivr('ElementPlus@2.8.5', 'dist/index.full.min.js'),
+          ],
+        ],
+        externalResource: {
+          'element-plus/dist/index.css': cdn.jsdelivr(),
         },
+        
       },
     }),
   ],
