@@ -4,6 +4,9 @@
 import HelloWorld from './components/HelloWorld.vue';
 import viteLogoUrl from './assets/vite.svg';
 import vueLogoUrl from './assets/vue.svg';
+import unocssLogoUrl from './assets/unocss.svg';
+import jqLogoUrl from './assets/jquery.svg';
+import elpLogoUrl from './assets/elp.svg';
 </script>
 
 <template>
@@ -15,7 +18,19 @@ import vueLogoUrl from './assets/vue.svg';
       <img :src="vueLogoUrl" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <div>
+    <a href="https://element-plus.org/zh-CN/" target="_blank">
+      <img :src="elpLogoUrl" class="logo element-plus" alt="element-plus logo" />
+    </a>
+    <a href="https://jquery.com/" target="_blank">
+      <img :src="jqLogoUrl" class="logo jquery" alt="jquery logo" />
+    </a>
+    <a href="https://unocss.nodejs.cn/" target="_blank">
+      <img :src="unocssLogoUrl" class="unocss" alt="unocss logo" />
+    </a>
+  
+  </div>
+  <HelloWorld msg="Vite + Vue + Elp + jQuery + unocss" />
 </template>
 
 <style scoped>
