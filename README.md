@@ -1,4 +1,5 @@
 一个 vite 插件，用来辅助开发 [Tampermonkey](https://www.tampermonkey.net/), [Violentmonkey](https://violentmonkey.github.io/), [Greasemonkey](https://www.greasespot.net/), [ScriptCat](https://docs.scriptcat.org/) 等脚本引擎 的脚本
+![](./src/public/show.png)
 # 主要特性
 * 支持 Tampermonkey、Violentmonkey、Greasemonkey、ScriptCat 等脚本引擎的辅助开发
 * 打包自动注入脚本配置头部注释
@@ -43,6 +44,13 @@ pnpm run dev
 pnpm run build
 ```
 会在**dist**中生成对应的脚本
+> 如果手动指定了@require的版本,在打包后需要把最后一行中的对应的版本删除:
+> ```vue
+>/// 删除后面的@版本号
+>})(Vue, jQuery@3.7.1, ElementPlus@2.8.5);
+>/// 变成这样的
+>})(Vue, jQuery, ElementPlus);
+>```
 ### 使用
 直接把dist中的js复制到油猴扩展里面就行
 ### 发布到greasyfork
