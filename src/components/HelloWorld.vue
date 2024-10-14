@@ -16,6 +16,7 @@ const getElementVersion = () => {
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
     <el-button type="success" @click="getElementVersion">饿了么</el-button>
+    <button type="button" class="bg-indigo-500 text-white rounded-lg-40">unocss</button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR

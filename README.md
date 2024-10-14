@@ -52,3 +52,17 @@ import 'element-plus/dist/index.css';
 ...省略...
 app.use(ElementPlus);
 ```
+### 添加unocss
+参考
+https://unocss.nodejs.cn/integrations/vite
+https://unocss.net/presets/rem-to-px
+安装
+pnpm add -D unocss
+安装像素转换
+```
+pnpm add -D @unocss/preset-rem-to-px
+```
+main.ts中引入
+```
+import 'virtual:uno.css'
+```
