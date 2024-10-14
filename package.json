@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "element-plus": "^2.8.5",
+    "jquery": "^3.7.1",
     "vue": "^3.4.27"
   },
   "devDependencies": {

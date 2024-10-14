@@ -1,6 +1,9 @@
 # 一个油猴的快速开发脚手架
 从[原项目](https://github.com/lisonge/vite-plugin-monkey)中扩展得到的
-使用到的技术:
+原项目wiki: [https://github.com/lisonge/vite-plugin-monkey/blob/main/README_zh.md](https://github.com/lisonge/vite-plugin-monkey/blob/main/README_zh.md)
+
+扩展后使用到的技术:
+
 ts
 vue3
 jQuery
@@ -65,4 +68,20 @@ pnpm add -D @unocss/preset-rem-to-px
 main.ts中引入
 ```
 import 'virtual:uno.css'
+```
+
+### 添加jQuery
+> jq的变量名和模板的$冲突,所以先设置模板的$为别的
+
+添加jq
+```
+pnpm add jquery
+```
+添加对应的@require
+```
+//externalGlobals再加一条
+  [
+            'jquery',
+            cdn.jsdelivr('jQuery@3.7.1','dist/jquery.min.js')
+        ]
 ```

@@ -26,6 +26,7 @@ export default defineConfig({
         namespace: 'npm/vite-plugin-monkey',
         match: ['https://www.baidu.com/'],
       },
+      clientAlias: 'v$v',
       build: {
         externalGlobals:  [
           [
@@ -41,6 +42,10 @@ export default defineConfig({
             'element-plus',
             cdn.jsdelivr('ElementPlus@2.8.5', 'dist/index.full.min.js'),
           ],
+          [
+            'jquery',
+            cdn.jsdelivr('jQuery@3.7.1','dist/jquery.min.js')
+        ]
         ],
         externalResource: {
           'element-plus/dist/index.css': cdn.jsdelivr(),
