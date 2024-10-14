@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import $  from 'jquery';
 import { ref } from 'vue';
 import {okMsg, warnMsg } from '../utils/common'
