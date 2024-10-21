@@ -53,6 +53,7 @@ pnpm run build
 >```
 ### 使用
 直接把dist中的js复制到油猴扩展里面就行
+然后打开[百度](https://www.baidu.com/)查看效果
 ### 发布到greasyfork
 项目使用的库里面有个https://cdn.jsdelivr.net/npm/vue-demi@latest/lib/index.iife.js
 
@@ -87,6 +88,9 @@ pnpm run build
 ...忽略代码...
 </script>
 ```
+# 分支说明
+**main**分支: 包含全部的
+**thin**分支: 简化版的,适合只添加1,2个按钮的情况
 
 # 用到的命令
 
