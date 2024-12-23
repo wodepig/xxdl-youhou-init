@@ -1,5 +1,10 @@
 一个 vite 插件，用来辅助开发 [Tampermonkey](https://www.tampermonkey.net/), [Violentmonkey](https://violentmonkey.github.io/), [Greasemonkey](https://www.greasespot.net/), [ScriptCat](https://docs.scriptcat.org/) 等脚本引擎 的脚本
-![](./src/public/show.png)
+
+支持添加一个按钮到页面
+![](./src/public/btn.png)
+
+支持控制台功能, 有简单的demo
+![](./src/public/console.png)
 # 主要特性
 * 支持 Tampermonkey、Violentmonkey、Greasemonkey、ScriptCat 等脚本引擎的辅助开发
 * 打包自动注入脚本配置头部注释
@@ -52,6 +57,21 @@ pnpm run build
 >/// 变成这样的
 >})(Vue, jQuery, ElementPlus);
 >```
+
+### 推送&远程更新
+**安装 pnpm add -D ali-oss**
+
+**卸载 pnpm remove ali-oss**
+
+我用的是阿里云对象存储, 记得安装依赖
+
+可以开通个对象存储和云函数,将打包后的文件放进去, 然后在油猴设置里的更新地址填入云函数绑定的域名(不用自己买域名,云函数提供),就能实现自动更新了
+
+根目录下有个**upload_oss.js**,里面有对应的上传方法,执行**pnpm run push**也能自动上传
+
+
+里面有个方法repalceVersion是去除版本号的
+
 ### 使用
 直接把dist中的js复制到油猴扩展里面就行
 然后打开[百度](https://www.baidu.com/)查看效果

@@ -1,11 +1,12 @@
 {
   "name": "vite-vue-ts-starter",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "push": "vue-tsc --noEmit && vite build && node ./upload_oss.js",
     "preview": "vite preview"
   },
   "dependencies": {

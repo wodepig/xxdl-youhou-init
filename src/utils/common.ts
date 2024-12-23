@@ -1,9 +1,11 @@
-
+// @ts-nocheck
 /**
- * 通知工具类
+ * 通用的工具类
  */
 
 import { ElNotification } from 'element-plus'
+import {GM_xmlhttpRequest} from "v$v";
+import {errMsg} from "./noticeUtil";
 
 enum msgTypes {
     warn = 'warning',
@@ -12,47 +14,63 @@ enum msgTypes {
     info = 'info',
 }
 
-export function okMsg(title: string, msg: string = '') {
-    msgShow(title, msg, msgTypes.ok)
-
-}
-export function successMsg(title: string, msg: string = '') {
-    msgShow(title, msg, msgTypes.ok)
-
-}
-
-export function infoMsg(title: string, msg: string = '') {
-    msgShow(title, msg, msgTypes.info)
-
-
-}
-
-export function errMsg(title: string, msg: string = '') {
-    msgShow(title, msg, msgTypes.err)
-
-
-}
-
-
-
-
-export function warnMsg(title: string, msg: string = '') {
-    msgShow(title, msg, msgTypes.warn)
-}
-
-
-
-function msgShow(title: string, msg: string, type: msgTypes) {
-    if (msg) {
-        ElNotification({
-            title: title,
-            message: msg,
-            type: type,
-        })
-    } else {
-        ElNotification({
-            title: title,
-            type: type,
-        })
+/**
+ * 强制停止
+ * @param stop 
+ */
+export function needStop(stop: boolean) {
+    if (stop){
+        errMsg('停止了')
+        throw Error('手动停止')
     }
 }
+
+export function sleep(time: number){
+    const rate = window['sleepRate'] ? window['sleepRate'] : 3
+    time = rate * time
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve('')
+        }, time)
+    })
+}
+
+/**
+ * get请求
+ * @param url 请求地址
+ * @returns 
+ */
+export function GmGet(url:string){
+    return new Promise((resolve, reject) => {
+        GM_xmlhttpRequest({
+            url:url,
+            method :"GET",
+            onload:function(xhr){
+                resolve(xhr.responseText)
+            }
+        });
+    })
+}
+
+/**
+ * post请求
+ * @param url 
+ * @param body 
+ * @returns 
+ */
+export function GmPost(url:string,body:object = {}){
+    return new Promise((resolve, reject) => {
+        GM_xmlhttpRequest({
+            url:url,
+            method :"POST",
+            headers:{
+                'Content-Type': "application/json"
+            },
+            data: JSON.stringify(body),
+            onload:function(xhr){
+                resolve(xhr.responseText)
+            }
+        });
+    })
+}
+

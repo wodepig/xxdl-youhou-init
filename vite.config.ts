@@ -24,7 +24,7 @@ export default defineConfig({
         description: '油猴快速开发',
         icon: 'https://vitejs.dev/logo.svg',
         namespace: 'npm/vite-plugin-monkey',
-        match: ['https://www.baidu.com/'],
+        match: ['https://www.baidu.com/*'],
       },
       clientAlias: 'v$v',
       build: {
